@@ -1,6 +1,11 @@
+var fs = require('fs');
+//Read trips data from JSON file
+var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
+
 /* GET travel view */
 const travel = (req, res) => {
-    res.render('travel', { title: 'Travl Getaways'});
+    //pass trips data to handlebars
+    res.render('travel', {title: "Travlr Getaways", trips});
 };
 
 module.exports = {
